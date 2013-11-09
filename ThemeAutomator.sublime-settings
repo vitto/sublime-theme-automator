@@ -1,0 +1,10 @@
+{
+	"color_scheme": "Packages/Color Scheme - Default/Solarized (Dark).tmTheme",
+	"schemes":
+	[
+		{
+			"color_scheme": "Packages/Color Scheme - Default/Sunburst.tmTheme",
+			"extension": ".md"
+		}
+	]
+}
