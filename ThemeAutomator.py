@@ -4,6 +4,11 @@ sublime_settings = sublime.load_settings('Preferences.sublime-settings')
 plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
 schemes = plugin_settings.get('schemes')
 
+def check_empty_color_scheme(view):
+	if plugin_settings.get('color_scheme') == "":
+		plugin_settings.set('color_scheme', sublime_settings.get('color_scheme'))
+		sublime.save_settings('ThemeAutomator.sublime-settings')
+
 def extensions():
 	extensions = []
 	for scheme in schemes:
@@ -40,13 +45,16 @@ def set_scheme_for_extension(self):
 
 class ThemeAutomatorEvents(sublime_plugin.EventListener):
 	def on_activated(self, view):
+		check_empty_color_scheme(view)
 		root,ext = os.path.splitext(view.file_name())
 		if ext in extensions():
 			color_scheme = theme(ext)
 			if sublime_settings.get('color_scheme') != color_scheme:
 				save_scheme(color_scheme)
-		elif sublime_settings.get('color_scheme') != plugin_settings.get('color_scheme'):
-			save_scheme(plugin_settings.get('color_scheme'))
+		else:
+			add_scheme(ext, sublime_settings.get('color_scheme'))
+			if sublime_settings.get('color_scheme') != plugin_settings.get('color_scheme'):
+				save_scheme(plugin_settings.get('color_scheme'))
 
 class SetSchemeForExtensionCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
