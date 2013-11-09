@@ -5,16 +5,16 @@
 		[
 			{
 				"id":"theme_automator",
-				"caption": "Set as default scheme",
-				"command": "set_default_scheme"
+				"caption": "Set scheme for this extension",
+				"command": "set_scheme_for_extension"
 			},{
 				"id":"theme_automator",
 				"caption": "Set as default + for this extension",
 				"command": "set_default_scheme_and_for_extension"
 			},{
 				"id":"theme_automator",
-				"caption": "Set for this extension",
-				"command": "set_scheme_for_extension"
+				"caption": "Set as default scheme",
+				"command": "set_default_scheme"
 			}
 		]
 	}
