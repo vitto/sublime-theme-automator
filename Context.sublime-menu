@@ -5,15 +5,17 @@
 		[
 			{
 				"id":"theme_automator",
-				"caption": "Set scheme for this extension",
+				"caption": "Use scheme for this file type",
 				"command": "set_scheme_for_extension"
-			},{
+			},
+			{ "caption":"-" },
+			{
 				"id":"theme_automator",
-				"caption": "Set as default + for this extension",
+				"caption": "Use as default + for this file type",
 				"command": "set_default_scheme_and_for_extension"
 			},{
 				"id":"theme_automator",
-				"caption": "Set as default scheme",
+				"caption": "Use as default scheme",
 				"command": "set_default_scheme"
 			}
 		]
