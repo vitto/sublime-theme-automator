@@ -1,0 +1,40 @@
+[
+  {
+    "caption": "Preferences",
+    "mnemonic": "n",
+    "id": "preferences",
+    "children":
+    [
+      {
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children":
+        [
+          {
+            "caption": "ThemeAutomator",
+            "children":
+            [
+              {
+                "command": "open_file",
+                "args": {"file": "${packages}/ThemeAutomator/README.md"},
+                "caption": "README"
+              },
+              { "caption": "-" },
+              {
+                "command": "open_file",
+                "args": {"file": "${packages}/ThemeAutomator/ThemeAutomator.sublime-settings"},
+                "caption": "Settings – Default"
+              },
+              {
+                "command": "open_file",
+                "args": {"file": "${packages}/User/ThemeAutomator.sublime-settings"},
+                "caption": "Settings – User"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
