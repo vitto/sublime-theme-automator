@@ -5,7 +5,6 @@ plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
 schemes = plugin_settings.get('schemes')
 automate_selection = plugin_settings.get('automate_selection')
 
-
 def check_empty_color_scheme(view):
 	if plugin_settings.get('color_scheme') == "":
 		plugin_settings.set('color_scheme', sublime_settings.get('color_scheme'))
@@ -62,8 +61,6 @@ class ThemeAutomatorEvents(sublime_plugin.EventListener):
 			if sublime_settings.get('color_scheme') != plugin_settings.get('color_scheme'):
 				save_scheme(plugin_settings.get('color_scheme'))
 	def on_deactivated(self, view):
-		plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
-		automate_selection = plugin_settings.get('automate_selection')
 		if automate_selection == True:
 			set_scheme_for_extension(view)
 
