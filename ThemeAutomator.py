@@ -60,7 +60,8 @@ class ThemeAutomatorEvents(sublime_plugin.EventListener):
 				if sublime_settings.get('color_scheme') != color_scheme:
 					save_scheme(color_scheme)
 			else:
-				add_scheme(ext, sublime_settings.get('color_scheme'))
+				if automate_selection == True:
+					add_scheme(ext, sublime_settings.get('color_scheme'))
 				if sublime_settings.get('color_scheme') != plugin_settings.get('color_scheme'):
 					save_scheme(plugin_settings.get('color_scheme'))
 	def on_deactivated(self, view):
