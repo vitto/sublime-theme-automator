@@ -9,6 +9,9 @@ It adds a context menu named ThemeAutomator:
 
 ![Image not found!](http://img30.imageshack.us/img30/4923/hoh0.png "ThemeAutomator context menu")
 
+###Changes in 1.0.3
+Fixed the [bug #1](https://github.com/vitto/sublime-theme-automator/issues/1) based on a plugin error and `automate_selection` not worked properly.
+
 
 ###Changes in 1.0.2
 Added property `automate_selection` in User settings `ThemeAutomator.sublime-settings` to apply themes automatically without using the context menu.
