@@ -1,9 +1,7 @@
 Theme Automator
 =======================
 
-Sets a different color scheme for every file type in [Sublime Text 2](http://www.sublimetext.com/2).
-
-This plug-in is **NOT** yet tested on Sublime Text 3, maybe it could work.
+Sets a different color scheme for every file type in [Sublime Text 2](http://www.sublimetext.com/2) and [Sublime Text 3](http://www.sublimetext.com/3).
 
 It adds a context menu named ThemeAutomator:
 
