@@ -1,7 +1,7 @@
 {
 	// automate_selection
 	// if is set to true apply schemes when changed without need to set them manually
-	"automate_selection": true,
+	"automate_selection": false,
 	"color_scheme": "",
 	"schemes":
 	[
