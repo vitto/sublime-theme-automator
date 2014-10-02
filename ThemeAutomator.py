@@ -3,6 +3,7 @@ import sublime, sublime_plugin, os
 sublime_settings = sublime.load_settings('Preferences.sublime-settings')
 plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
 schemes = plugin_settings.get('schemes')
+
 automate_selection = plugin_settings.get('automate_selection')
 if automate_selection is None:
 	automate_selection = True
@@ -57,8 +58,10 @@ class ThemeAutomatorEvents(sublime_plugin.EventListener):
 			root,ext = os.path.splitext(view.file_name())
 			if ext in extensions():
 				color_scheme = theme(ext)
-				if sublime_settings.get('color_scheme') != color_scheme:
+				if sublime_settings.get('color_scheme') != color_scheme and schemes is not None:
 					save_scheme(color_scheme)
+				else:
+					add_scheme(ext, sublime_settings.get('color_scheme'))
 			else:
 				if automate_selection == True:
 					add_scheme(ext, sublime_settings.get('color_scheme'))
