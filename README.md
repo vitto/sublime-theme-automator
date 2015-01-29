@@ -7,6 +7,8 @@ It adds a context menu named ThemeAutomator:
 
 ![Image not found!](http://img30.imageshack.us/img30/4923/hoh0.png "ThemeAutomator context menu")
 
+This image is showing **Big Duo** color scheme of [Theme Nil](https://github.com/nilium/st2-nil-theme)
+
 ###Changes in v.1.0.6
 Fixed the [bug #2](https://github.com/vitto/sublime-theme-automator/issues/2) caused by a missing load event when plug-in is reloaded.
 
