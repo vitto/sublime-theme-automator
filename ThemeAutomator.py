@@ -1,15 +1,21 @@
 import sublime, sublime_plugin, os
 
-sublime_settings = sublime.load_settings('Preferences.sublime-settings')
-plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
-schemes = plugin_settings.get('schemes')
+sublime_settings = None
+plugin_settings = None
+schemes = None
+automate_selection = None
 
-automate_selection = plugin_settings.get('automate_selection')
-if automate_selection is None:
-	automate_selection = True
+def plugin_loaded():
+	global sublime_settings, plugin_settings, schemes, automate_selection
+	sublime_settings = sublime.load_settings('Preferences.sublime-settings')
+	plugin_settings = sublime.load_settings('ThemeAutomator.sublime-settings')
+	schemes = plugin_settings.get('schemes')
+	automate_selection = plugin_settings.get('automate_selection')
+	if automate_selection is None:
+		automate_selection = True
 
 def check_empty_color_scheme(view):
-	if plugin_settings.get('color_scheme') == "":
+	if plugin_settings.get('color_scheme') == '':
 		plugin_settings.set('color_scheme', sublime_settings.get('color_scheme'))
 		sublime.save_settings('ThemeAutomator.sublime-settings')
 
@@ -28,13 +34,13 @@ def save_scheme(color_scheme):
 
 def theme(ext):
 	for index, scheme in enumerate(schemes):
-		if scheme["extension"] == ext:
+		if scheme['extension'] == ext:
 			return scheme.get('color_scheme')
 
 def set_scheme(ext, color_scheme):
 	for index, scheme in enumerate(schemes):
-		if scheme["extension"] == ext and schemes[index]["color_scheme"] != color_scheme:
-			schemes[index]["color_scheme"] = color_scheme
+		if scheme['extension'] == ext and schemes[index]['color_scheme'] != color_scheme:
+			schemes[index]['color_scheme'] = color_scheme
 			plugin_settings.set('schemes', schemes)
 			sublime.save_settings('ThemeAutomator.sublime-settings')
 
@@ -47,8 +53,10 @@ def set_scheme_for_extension(view):
 	if view.file_name() is not None:
 		root,ext = os.path.splitext(view.file_name())
 		if ext in extensions():
+			print('SET scheme for extension')
 			set_scheme(ext, sublime_settings.get('color_scheme'))
 		else:
+			print('ADD scheme for extension')
 			add_scheme(ext, sublime_settings.get('color_scheme'))
 
 class ThemeAutomatorEvents(sublime_plugin.EventListener):
@@ -60,10 +68,9 @@ class ThemeAutomatorEvents(sublime_plugin.EventListener):
 				color_scheme = theme(ext)
 				if sublime_settings.get('color_scheme') != color_scheme and schemes is not None:
 					save_scheme(color_scheme)
-				else:
-					add_scheme(ext, sublime_settings.get('color_scheme'))
 			else:
 				if automate_selection == True:
+					print('add_scheme 2 scheme for extension')
 					add_scheme(ext, sublime_settings.get('color_scheme'))
 				if sublime_settings.get('color_scheme') != plugin_settings.get('color_scheme'):
 					save_scheme(plugin_settings.get('color_scheme'))
