@@ -11,7 +11,10 @@ It adds a context menu named ThemeAutomator:
 
 This image is showing **Big Duo** color scheme of [Theme Nil](https://github.com/nilium/st2-nil-theme)
 
-###Changes in v.1.0.6
+###Changes in 1.0.7
+Added context menu item to open plug-in user's config directly from context menu
+
+###Changes in 1.0.6
 Fixed the [bug #2](https://github.com/vitto/sublime-theme-automator/issues/2) caused by a missing load event when plug-in is reloaded.
 
 ###Changes in 1.0.4
