@@ -17,7 +17,14 @@
 				"id":"theme_automator",
 				"caption": "Use as default scheme",
 				"command": "set_default_scheme"
-			}
+			},
+			{ "caption":"-" },
+      			{
+      				"id":"theme_automator",
+                		"command": "open_file",
+                		"args": {"file": "${packages}/User/ThemeAutomator.sublime-settings"},
+                		"caption": "Settings – User"
+              		}
 		]
 	}
 ]
